@@ -1,2 +1,2 @@
 # wp-plugin-test-env
-A docker based test environment for WordPress plugis
+A docker based test environment for WordPress plugins
