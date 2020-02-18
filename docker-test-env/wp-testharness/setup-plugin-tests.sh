@@ -5,6 +5,8 @@ apt-get update --assume-yes
 apt-get install subversion --assume-yes
 apt-get install mysql\* --assume-yes
 
+#  Delete akismet
+rm -fr /var/www/html/wp-content/plugins/akismet
 
 # loop through plugins creating 
 for plugin_path in /var/www/html/wp-content/plugins/*/ ; do

@@ -19,7 +19,7 @@ class ExamplePluginTest extends WP_UnitTestCase
     public function test_methods()
     {
         hello_world();
-   		$this->assertTrue( true );
+   		$this->assertTrue( false );
     }
     
     
