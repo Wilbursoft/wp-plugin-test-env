@@ -1,0 +1,22 @@
+name: Push Test
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run self test 
+      run: |
+        echo creating docker image for test environment
+        ./bin/make-wp-docker.sh $PWD/example-plugin
+        
+        echo spinning up test environment 
+        ./bin/bring-up-test-env.sh
+       
+        echo Run the tests
+        docker exec docker-test-env_wordpress_1 /var/www/html/setup-run-unittests.sh 
+        
