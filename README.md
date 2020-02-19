@@ -73,7 +73,7 @@ Generally, you would run them in this order....
 
 ### Example (2) - GitHub Action Usage
  
-- an example of GitHug work flow *.yml file 
+An example of GitHug work flow *.yml file 
 
 
     name: Automates Test On Push
