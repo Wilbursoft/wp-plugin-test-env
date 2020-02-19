@@ -23,15 +23,8 @@ All runnable scripts are in /bin/ directory
 ### bring-up-test-env.sh - Bring up the test environment 
     ./bin/bring-up-test-env.sh
     
-- Brings up two docker test environment wp-testharness and seperate mysql instance configured and ready for test
-
-
-    | CONTAINER ID        IMAGE               COMMAND                   PORTS                  NAMES
-    | 3333923afeda        mysql:5.7           "docker-entrypoint.s…"    3306/tcp, 33060/tcp    docker-test-env_db_1
-    | 95bbd1f6efd7        wp-testharness      "docker-entrypoint.s…"    0.0.0.0:8080->80/tcp   docker-test-env_wordpress_1
-    
-
-- Wordpress will listen on http://localhost:8080 from the docker host
+- Brings up a test environment with the wp-testharness container and a seperate mysql 5.7 container configured and ready for test   
+- Note: Wordpress will listen on http://localhost:8080 from the docker host
 - To get a shell on the word press docker run
  
     $ docker exec -it docker-test-env_wordpress_1 /bin/bash
