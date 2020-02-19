@@ -1,5 +1,8 @@
 # wp-plugin-test-env
-A docker based test environment for WordPress plugins
+Spins up a docker based test environment for testing WordPress plugins.  Designed to be used locally in a dev environmnet or as a part of a CI/CD workflow. 
+
+# Description
+The scripts create a WordPress docker with your plugin code, phpunit-6.5 and supporting WordPress scaffolding auto configured ready to run tests. This is along with a mysql docker is spun up and configured with your plugin active. Tests are then run and when completed the setup is toen down. 
 
 # Pre reqs
 - docker, docker compose
