@@ -21,7 +21,7 @@ Generally, you would run them in this order....
 - Copys in you plugin code 
 - Installs phpunit-6.5, wp-cli ready for WP_UnitTestCase and TestCase test cases 
 
-### (2) bring-up-test-env.sh - Bring up the test environment 
+### (2) Bring up the test environment - bring-up-test-env.sh
     ./bin/bring-up-test-env.sh
     
 - Brings up a test environment with the wp-testharness container and a seperate mysql 5.7 container configured and ready for test   
@@ -30,18 +30,24 @@ Generally, you would run them in this order....
  
     $ docker exec -it docker-test-env_wordpress_1 /bin/bash
 
+### (3) Run the tests - run-tests.sh 
+./bin/run-tests.sh
+- This will launch phpunit on all the test cases 
+- Return code will indicate success failure 
+- Test report sent to stdout 
 
-### ./bin/tear-down-test-env.sh Tears down the docker environment 
+
+### (4) Tear down the docker environment - tear-down-test-env.sh 
     ./bin/tear-down-test-env.sh
 - tears down the created test environment and prunes out related images, volumes etc. 
 - WARNING: Everything is gone.
 
-### self-test.sh Self test 
+### Example (1) - self-test.sh 
     ./bin/self-test.sh
 - a script to test this the too set, copied below as a good example of how to use locally
 
 
-    # Running from the root of the folder
+    \# Running from the root of the folder
     if [ 'wp-plugin-test-env' != $(basename $PWD) ]
     then
         echo 'Please run this from the root of wp-plugin-test-env'
@@ -49,23 +55,23 @@ Generally, you would run them in this order....
     fi
 
 
-    # Clean anything dangling out
+    \# Clean anything dangling out
     ./bin/tear-down-test-env.sh
 
-    # Build the docker
+    \# Build the docker
     ./bin/make-wp-docker.sh $PWD/example-plugin
 
-    # Spin up
+    \# Spin up
     ./bin/bring-up-test-env.sh
 
-    # Run the tests
+    \# Run the tests
     docker exec docker-test-env_wordpress_1 /var/www/html/setup-run-unittests.sh 
 
 
-    # Clean up
+    \# Clean up
     echo "run ./bin/tear-down-test-env.sh to clean up"
 
-### Example GitHub Action Usage
+### Example (2) - GitHub Action Usage
  
 - an example of GitHug work flow *.yml file 
 
