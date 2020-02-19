@@ -10,21 +10,20 @@ then
 fi
 
 
-# Clean anything dangling out
+# Clean anything dangling around from prior runs
 ./bin/tear-down-test-env.sh
 
-# Build the docker
+# Build the docker - here we specifc the path to our example plugin
 ./bin/make-wp-docker.sh $PWD/example-plugin
 
 # Spin up
 ./bin/bring-up-test-env.sh
 
-# Run the tests
-docker exec docker-test-env_wordpress_1 /var/www/html/setup-run-unittests.sh 
-
+# Run the tests - this will launch phpunit on all the test cases - return code will indicate success failure 
+./bin/run-tests.sh
 
 # Clean up
-echo "run ./bin/tear-down-test-env.sh to clean up"
+./bin/tear-down-test-env.sh
 
 
 
