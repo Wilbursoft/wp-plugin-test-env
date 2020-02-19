@@ -9,9 +9,10 @@ The scripts create a WordPress docker with your plugin code, phpunit-6.5 and sup
 - docker, docker compose
 
 # Usage
-All runnable scripts are in /bin/ directory
+All runnable scripts are in /bin/ directory. 
+Generally, you would run them in this order....
 
-### make-wp-docker.sh - Make the docker images needed 
+### (1) Build the docker image - make-wp-docker.sh
     ./bin/make-wp-docker.sh [plugin path]
 
 - [plugin path] is the absolute path to your plugin 
@@ -20,7 +21,7 @@ All runnable scripts are in /bin/ directory
 - Copys in you plugin code 
 - Installs phpunit-6.5, wp-cli ready for WP_UnitTestCase and TestCase test cases 
 
-### bring-up-test-env.sh - Bring up the test environment 
+### (2) bring-up-test-env.sh - Bring up the test environment 
     ./bin/bring-up-test-env.sh
     
 - Brings up a test environment with the wp-testharness container and a seperate mysql 5.7 container configured and ready for test   
