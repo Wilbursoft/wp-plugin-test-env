@@ -36,9 +36,14 @@ mkdir -p $targetplugindir
 cp -rf $plugin_path_to_test $targetplugindir
 
 echo 'cleaning out existing unit test scaffolding '
-rm $targetplugindir/$plugin_name/tests/bootstrap.php
-rm $targetplugindir/$plugin_name/phpunit.xml.dist
-rm $targetplugindir/$plugin_name/bin/install-wp-tests.sh
+rm -f $targetplugindir/$plugin_name/tests/bootstrap.php
+rm -f $targetplugindir/$plugin_name/tests/test-sample.php
+rm -f $targetplugindir/$plugin_name/bin/install-wp-tests.sh
+rm -f $targetplugindir/$plugin_name/phpunit.xml.dist
+rm -f $targetplugindir/$plugin_name/.phpcs.xml.dist
+rm -f $targetplugindir/$plugin_name/.travis.yml
+
+
 
 echo 'preparing phpunit'
 wget --output-document=$builddir/docker-test-env/wp-testharness/phpunit-6.5.phar https://phar.phpunit.de/phpunit-6.5.phar 
