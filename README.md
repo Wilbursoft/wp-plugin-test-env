@@ -1,4 +1,5 @@
 # wp-plugin-test-env
+![Tests](https://github.com/Wilbursoft/wp-plugin-test-env/workflows/Tests/badge.svg) \
 Spins up a docker based test environment for testing WordPress plugins.  
 Designed to be used locally in a dev environmnet or as a part of a CI/CD workflow (e.g. GitHub Actions). 
 
